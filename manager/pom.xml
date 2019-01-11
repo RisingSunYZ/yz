@@ -13,6 +13,7 @@
 
 	<properties>
 		<java.version>1.8</java.version>
+		<start-class>com.yz.ManagerApplication</start-class>
 	</properties>
 
 	<dependencies>
@@ -38,11 +39,44 @@
 	</dependencies>
 
 	<build>
+		<finalName>yz-manager</finalName>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
+			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**/*.xml</include>
+					<include>**/*.xlsx</include>
+					<include>**/*.xls</include>
+				</includes>
+			</resource>
+		</resources>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<mainClass>${start-class}</mainClass>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<!--把依赖的包都打包到生成的Jar包中-->
+							<goal>repackage</goal>
+							<goal>build-info</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
+			<!--<plugin>-->
+				<!--<artifactId>maven-resources-plugin</artifactId>-->
+				<!--<configuration>-->
+					<!--<encoding>utf-8</encoding>-->
+					<!--<useDefaultDelimiters>true</useDefaultDelimiters>-->
+				<!--</configuration>-->
+			<!--</plugin>-->
 		</plugins>
 	</build>
 

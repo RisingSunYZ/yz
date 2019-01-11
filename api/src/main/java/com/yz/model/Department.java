@@ -2,10 +2,15 @@ package com.yz.model;
 
 import java.io.Serializable;
 
+
+/**
+ * 部门
+ */
 public class Department implements Serializable {
 
     private Integer id;
 
+    //部门名称
     private String deptName;
 
 

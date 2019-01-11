@@ -12,7 +12,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="api" target="1.8" />
+      <module name="api" target="1.5" />
       <module name="core" target="1.8" />
       <module name="manager" target="1.8" />
       <module name="yz" target="1.8" />
