@@ -6,7 +6,7 @@
     <springProperty scope="context" name="logPath" source="log.path"/>
     <!-- 注意这里一定要放到springProfile里, 否则在你本机执行的时候还是会去找相应的文件 -->
     <appender name="fileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${logPath}/crm.log</file>
+        <file>${logPath}/yz.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
             <!--日志文件输出的文件名-->
             <fileNamePattern>${logPath}/back/%d{yyyy-MM-dd}.%i.log</fileNamePattern>
@@ -27,7 +27,7 @@
         </encoder>
     </appender>
     <springProfile name="dev">
-        <logger name="com.ys" level="${logLevel}"/>
+        <logger name="com.yz" level="${logLevel}"/>
         <logger name="org.springframework.data.mybatis" level="${logLevel}"/>
         <root level="${logLevel}">
             <appender-ref ref="consoleAppender"/>
@@ -35,13 +35,13 @@
         </root>
     </springProfile>
     <springProfile name="test">
-        <logger name="com.ys" level="${logLevel}"/>
+        <logger name="com.yz" level="${logLevel}"/>
         <root level="${logLevel}">
             <appender-ref ref="fileAppender"/>
         </root>
     </springProfile>
     <springProfile name="prod">
-        <logger name="com.ys" level="${logLevel}"/>
+        <logger name="com.yz" level="${logLevel}"/>
         <root level="${logLevel}">
             <appender-ref ref="fileAppender"/>
         </root>
